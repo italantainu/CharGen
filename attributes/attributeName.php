@@ -1,5 +1,7 @@
 <?php
-	class attributeName extends characterAttribute {
+	require_once 'attributes/attributeAbstract.php';
+	
+	class attributeName extends attributeAbstract {
 		private $name;
 		private $maleNames = array('Nickolas Lepak','Winfred Slaybaugh','Myron Yankey','Sergio Thornley','Roland Newhard','Brent Kizer','Terrance Restivo','Elmer Peiffer','Kenton Fang','Reinaldo Glisson','Fredrick Thrush','Maria Denby','Lucas Constable','Bart Mcclaren','Stefan Hollow','Eldridge Hallenbeck','Rodolfo Bertram','Nathan Christner','Alonso Biron','Federico Vosburgh','Rod Vinci','Sonny Cheney','Harry Finke','Leroy Piro','Guillermo Curnutte','Erik Ouellette','Renato Valentine','Scotty Sparr','Mario Ahlquist','Micah Sommers');
 		private $femaleNames = array('Leola Transue','Mina Rodney','Bobette Becker','Larue Owen','Madlyn Jepsen','Francie Dial','Kallie Cerutti','Ester Jasmin','Nicki Scales','Leota Kilcrease','Shawnee Socia','Lashaunda Strock','Felicidad Thrush','Dominica Owsley','Madeleine Papenfuss','Glenda Sokol','Sarina Farraj','Wendi Secrest','Clementine Kendig','Dominque Closson','Vivienne Bert','Ariana Vadnais','Nu Tinsley','Tammy Parenteau','Marchelle Poitra','Lorie Hermosillo','Liza Hemenway','Shawnna Otter','Vonnie Dipalma','Danyell Grande');

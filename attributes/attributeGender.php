@@ -1,5 +1,7 @@
 <?php
-	class attributeGender extends characterAttribute {
+	require_once 'attributes/attributeAbstract.php';
+
+	class attributeGender extends attributeAbstract {
 		private $gender;
 		
 		public function init($params) {

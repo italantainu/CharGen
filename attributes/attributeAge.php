@@ -1,5 +1,7 @@
 <?php
-	class attributeAge extends characterAttribute {
+	require_once 'attributes/attributeAbstract.php';
+
+	class attributeAge extends attributeAbstract {
 		private $age;
 		private $minAge = 10;
 		private $maxAge = 100;

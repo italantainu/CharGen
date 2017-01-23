@@ -1,5 +1,5 @@
 <?php
-	abstract class characterAttribute {
+	abstract class attributeAbstract {
 		protected $attributeSeed;
 		protected $character;
 		public function __construct($character, $seed) {
