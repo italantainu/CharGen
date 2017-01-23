@@ -4,6 +4,7 @@
 		private $gender;
 		private $name;
 		private $age;
+		private $attributes = array();
 		
 		private function init($seed) {
 			if (intval($seed) == 0 && strlen($seed) > 0) {
