@@ -25,11 +25,13 @@
 		}
 		
 		public function __construct($seed = null, $params = array()) {
-			if ($seed === null) $seed = str_replace('.','',time()+microtime());
+			if ($seed == null) $seed = str_replace('.','',time()+microtime());
 			$this->init($seed, $params);
 		}
 		
 		public function __get($name) {
+			if (ucwords($name) == ucwords('seed')) return $this->seed;
+			
 			foreach ($this->attributes as $attribute) {
 				if (get_parent_class($attribute) == 'attributeAbstract') {
 					if (ucwords($attribute->getAttributeName()) == ucwords($name)) {
@@ -39,5 +41,16 @@
 			}
 			
 			return null;
+		}
+		
+		public function listAttributes() {
+			$list = array();
+			foreach ($this->attributes as $attribute) {
+				if (get_parent_class($attribute) == 'attributeAbstract') {
+					$list[] = $attribute->getAttributeName();
+				}
+			}
+			
+			return $list;
 		}
 	}

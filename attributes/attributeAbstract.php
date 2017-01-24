@@ -20,4 +20,5 @@
 		abstract public function init($params);
 		abstract public function getAttributeName();
 		abstract public function getAttributeValue();
+		//abstract public function getParamNames();
 	}
