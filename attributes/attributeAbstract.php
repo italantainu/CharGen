@@ -2,7 +2,7 @@
 	abstract class attributeAbstract {
 		protected $attributeSeed;
 		protected $character;
-		public function __construct($character, $seed) {
+		public function __construct($character, $seed, $params) {
 			if (get_class($character) != 'character') throw new Exception("Expected a 'character' object");
 			$this->character = $character;
 			
@@ -14,6 +14,7 @@
 				}
 			}
 			$this->attributeSeed = $seed;
+			$this->init($params);
 		}
 		
 		abstract public function init($params);

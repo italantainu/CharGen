@@ -8,7 +8,7 @@
 		private $seed;
 		private $attributes = array();
 		
-		private function init($seed) {
+		private function init($seed, $params) {
 			if (intval($seed) == 0 && strlen($seed) > 0) {
 				$strSeed = $seed;
 				$seed = 0;
@@ -19,14 +19,14 @@
 			$this->seed = $seed;
 			mt_srand($this->seed);
 			
-			$this->attributes[] = new attributeAge($this, mt_rand());
-			$this->attributes[] = new attributeGender($this, mt_rand());
-			$this->attributes[] = new attributeName($this, mt_rand());
+			$this->attributes[] = new attributeAge($this, mt_rand(), $params);
+			$this->attributes[] = new attributeGender($this, mt_rand(), $params);
+			$this->attributes[] = new attributeName($this, mt_rand(), $params);
 		}
 		
-		public function __construct($seed = null) {
+		public function __construct($seed = null, $params = array()) {
 			if ($seed === null) $seed = str_replace('.','',time()+microtime());
-			$this->init($seed);
+			$this->init($seed, $params);
 		}
 		
 		public function __get($name) {
@@ -37,5 +37,7 @@
 					}
 				}
 			}
+			
+			return null;
 		}
 	}
