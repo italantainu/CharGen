@@ -11,11 +11,11 @@
 		private $gender; private $genderSeed;
 		
 		public function init($params) {
-			if (isset($params['firstName'])) $this->firstName = $params['firstName'];
-			if (isset($params['surName'])) $this->surName = $params['surName'];
-			if (isset($params['age'])) $this->age = $params['age'];
-			if (isset($params['minAge'])) $this->minAge = $params['minAge'];
-			if (isset($params['maxAge'])) $this->maxAge = $params['maxAge'];
+			if (isset($params['firstName']) && ($params['firstName'] != '')) $this->firstName = $params['firstName'];
+			if (isset($params['surName']) && ($params['surName'] != '')) $this->surName = $params['surName'];
+			if (isset($params['age']) && (is_numeric($params['age']))) $this->age = $params['age'];
+			if (isset($params['minAge']) && (is_numeric($params['minAge']))) $this->minAge = $params['minAge'];
+			if (isset($params['maxAge']) && (is_numeric($params['maxAge']))) $this->maxAge = $params['maxAge'];
 			if (isset($params['gender']) && ($params['gender'] == 'Male' || $params['gender'] == 'Female')) $this->gender= $params['gender'];
 			
 			mt_srand($this->attributeSeed);
@@ -27,6 +27,9 @@
 		
 		public function listAttributeNames() {
 			return array('firstName','surName','name','age','gender');
+		}
+		public function listInitParameters() {
+			return array('firstName','surName','age','minAge','maxAge','gender');
 		}
 		
 		public function getAttributeValues($name) {

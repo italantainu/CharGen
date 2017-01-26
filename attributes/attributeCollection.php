@@ -19,5 +19,6 @@
 		
 		abstract public function init($params);
 		abstract public function listAttributeNames();
+		abstract public function listInitParameters();
 		abstract public function getAttributeValues($name);
 	}

@@ -48,4 +48,15 @@
 			
 			return $list;
 		}
+		
+		public function listAttributeInitParams() {
+			$list = array();
+			foreach ($this->attributes as $attribute) {
+				if (get_parent_class($attribute) == 'attributeCollection') {
+					$list = array_merge($list,$attribute->listInitParameters());
+				}
+			}
+				
+			return $list;
+		}
 	}
