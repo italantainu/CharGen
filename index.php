@@ -24,3 +24,12 @@ foreach ($chars as $char) {
 	}
 	echo "<hr />";
 }
+
+$seed = mt_rand();
+echo "<h3> Characters ($seed) - Testing if the order of getting attribute matter</h3>";
+$char1 = new character($seed);
+$char2 = new character($seed);
+echo 'Char1 name: '.$char1->name.'<br />';
+echo 'Char1 age: '.$char1->age.'<br />';
+echo 'Char2 age: '.$char2->age.'<br />';
+echo 'Char2 name: '.$char2->name.'<br />';

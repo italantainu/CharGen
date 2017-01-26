@@ -17,11 +17,6 @@
 			mt_srand($this->seed);
 			
 			$this->attributes[] = new identifyingAttributes($this, mt_rand(), $params);
-			/*
-			 $this->attributes[] = new attributeAge($this, mt_rand(), $params);
-			 $this->attributes[] = new attributeGender($this, mt_rand(), $params);
-			 $this->attributes[] = new attributeName($this, mt_rand(), $params);
-			 */
 		}
 		
 		public function __construct($seed = null, $params = array()) {

@@ -16,7 +16,7 @@
 			if (isset($params['age'])) $this->age = $params['age'];
 			if (isset($params['minAge'])) $this->minAge = $params['minAge'];
 			if (isset($params['maxAge'])) $this->maxAge = $params['maxAge'];
-			if (isset($params['gender'])) $this->gender= $params['gender'];
+			if (isset($params['gender']) && ($params['gender'] == 'Male' || $params['gender'] == 'Female')) $this->gender= $params['gender'];
 			
 			mt_srand($this->attributeSeed);
 			$this->firstNameSeed = mt_rand();
