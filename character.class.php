@@ -1,8 +1,5 @@
 <?php
-	require_once 'attributes/attributeAge.php';
-	require_once 'attributes/attributeGender.php';
-	require_once 'attributes/attributeName.php';
-	
+	require_once 'attributes/identifyingAttributes.php';
 
 	class character {
 		private $seed;
@@ -19,9 +16,12 @@
 			$this->seed = $seed;
 			mt_srand($this->seed);
 			
-			$this->attributes[] = new attributeAge($this, mt_rand(), $params);
-			$this->attributes[] = new attributeGender($this, mt_rand(), $params);
-			$this->attributes[] = new attributeName($this, mt_rand(), $params);
+			$this->attributes[] = new identifyingAttributes($this, mt_rand(), $params);
+			/*
+			 $this->attributes[] = new attributeAge($this, mt_rand(), $params);
+			 $this->attributes[] = new attributeGender($this, mt_rand(), $params);
+			 $this->attributes[] = new attributeName($this, mt_rand(), $params);
+			 */
 		}
 		
 		public function __construct($seed = null, $params = array()) {
@@ -33,9 +33,9 @@
 			if (ucwords($name) == ucwords('seed')) return $this->seed;
 			
 			foreach ($this->attributes as $attribute) {
-				if (get_parent_class($attribute) == 'attributeAbstract') {
-					if (ucwords($attribute->getAttributeName()) == ucwords($name)) {
-						return $attribute->getAttributeValue();
+				if (get_parent_class($attribute) == 'attributeCollection') {
+					if (in_array($name, $attribute->listAttributeNames())) {
+						return $attribute->getAttributeValues($name);
 					}
 				}
 			}
@@ -46,8 +46,8 @@
 		public function listAttributes() {
 			$list = array();
 			foreach ($this->attributes as $attribute) {
-				if (get_parent_class($attribute) == 'attributeAbstract') {
-					$list[] = $attribute->getAttributeName();
+				if (get_parent_class($attribute) == 'attributeCollection') {
+					$list = array_merge($list,$attribute->listAttributeNames());
 				}
 			}
 			

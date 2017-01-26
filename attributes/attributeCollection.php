@@ -1,5 +1,5 @@
 <?php
-	abstract class attributeAbstract {
+	abstract class attributeCollection {
 		protected $attributeSeed;
 		protected $character;
 		public function __construct($character, $seed, $params) {
@@ -18,7 +18,6 @@
 		}
 		
 		abstract public function init($params);
-		abstract public function getAttributeName();
-		abstract public function getAttributeValue();
-		//abstract public function getParamNames();
+		abstract public function listAttributeNames();
+		abstract public function getAttributeValues($name);
 	}
